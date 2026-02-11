@@ -2,7 +2,7 @@
  * **********************************************
  * San Francisco State University
  * CSC 220 -  Data Structures
- * File Name: Messenger.java
+ * File Name: Manager.java
  * Author: Duc Ta
  * Author: <First Name> <Last Name>
  * **********************************************
@@ -10,66 +10,37 @@
 
 package assignment02PartB;
 // Please organize all the given files in 1 same package
+
 // Please make sure to read the provided "_ListOf-PleaseDoNotChange.txt"
 
-
-//
-
-// Please DO NOT CHANGE this file.
-
-// Please DO NOT CHANGE this file.
-
-// Please DO NOT CHANGE this file.
-
-//
-
-public final class Messenger {
+public final class Manager extends Person {
 
     //
-    // main method
+    // Instance Data Fields
     //
-    public static void main(String[] args) {
-        Messenger.start();
-        Messenger.chat();
-        Messenger.stop();
-    }
-
-    //
-    // Static Data Fields
-    //
-    private static final Config config = new Config();
 
     //
     // Constructors
     //
-    private Messenger() {
+    public Manager() {
+        this("Gabe", "Kapler");
+    }
+
+    public Manager(String firstName, String lastName) {
+        super(firstName, lastName);
+        this.role = "Manager";
+        this.affiliation = new Club(Messenger.getConfig().getLanguage().getClubPhrase(0));
     }
 
     //
-    // Static Methods
+    // Instance Methods
     //
-    public static Config getConfig() {
-        return Messenger.config;
-    }
-    private static void start() {
-        Messenger.config.getStdOutStdErrTee().startLog();
-        Messenger.config.setPreferences();
-    }
-    private static void chat() {
-        (new ChatSession(Messenger.config.getClub(), Messenger.config.getUniversity())).runChatSession();
-    }
-    private static void stop() {
-        Messenger.config.getStdOutStdErrTee().stopLog();
-        // LogFileDriver.run(); // Please temporarily uncomment this line to run LogFileDriver.
-    }
+
+    //
+    // Language
+    //
+
+    //
+    // Override
+    //
 }
-
-//
-
-// Please DO NOT CHANGE this file.
-
-// Please DO NOT CHANGE this file.
-
-// Please DO NOT CHANGE this file.
-
-//
